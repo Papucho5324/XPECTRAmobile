@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrivacyPolice">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fondo_nasa"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:padding="16dp"
+                android:text="Aviso de Privacidad"
+                android:textColor="@android:color/white"
+                android:textSize="45sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="16dp"
+            android:text="En Xpectra, prestadora de servicios de internet, estamos comprometidos con la protección de los datos personales de nuestros clientes. La información que recabamos es utilizada únicamente para la correcta prestación de nuestros servicios, incluyendo la instalación, soporte técnico y atención al cliente.
+
+Sus datos serán tratados con estricta confidencialidad y no serán compartidos con terceros, salvo en los casos previstos por la ley. Usted tiene derecho a acceder, rectificar y cancelar sus datos, así como a oponerse a su tratamiento, conforme a lo dispuesto por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
+
+Para más información sobre el uso de sus datos personales, puede contactarnos a través de nuestro servicio de atención al cliente o visitar nuestro sitio web.
+
+Xpectra – Conectando tu mundo."
+            android:textSize="17sp"
+            android:justificationMode="inter_word"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnRegresar"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="Regresar"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#535C91"
+            android:layout_gravity="center|bottom"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

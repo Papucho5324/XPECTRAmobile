@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fondo_nasa"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:padding="16dp"
+                android:text="Bienvenidos a Xpectra"
+                android:textColor="@android:color/white"
+                android:textSize="45sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+        </FrameLayout>
+
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_account"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_email"
+                android:layout_gravity="center"
+                android:layout_marginEnd="5dp"
+                tools:ignore="ContentDescription" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/TextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Correo Electronico"
+                    android:inputType="textEmailAddress"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_password"
+                android:layout_gravity="center"
+                android:layout_marginEnd="5dp"
+                tools:ignore="ContentDescription" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/TextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contrsaeña"
+                    android:inputType="textPassword"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="Iniciar Sesión"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/button_color_selector"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="Registrarse"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#535C91"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            tools:ignore="HardcodedText" />
+
+
+        <TextView
+            android:id="@+id/PasswordRecovery"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:text="Olvidaste tu contraseña?"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#1E0342"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/PrivacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="17sp"
+            android:layout_gravity="center"
+            android:text="Aviso de privacidad"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="#1E0342"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
