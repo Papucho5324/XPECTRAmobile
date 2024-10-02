@@ -2,30 +2,37 @@ package com.example.socialmediagamer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterActivity2 extends AppCompatActivity {
     TextInputEditText mNumberAccount;
-    TextInputEditText mRegisterEmail;
+    TextInputEditText mEmail;
     TextInputEditText mRegisterPassword;
     TextInputEditText mRegisterPasswordConfirm;
     Button mBtnCancelar;
     Button mbtnRegisterAcept;
-
+    private FirebaseAuth mAuth;
+    FirebaseFirestore mFirestore;
 
 
     @Override
@@ -35,9 +42,13 @@ public class RegisterActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_register2);
 
         mNumberAccount = findViewById(R.id.NumberAccount);
-        mRegisterEmail = findViewById(R.id.RegisterEmail);
+        mEmail = findViewById(R.id.Email);
         mRegisterPassword = findViewById(R.id.RegisterPassword);
         mRegisterPasswordConfirm = findViewById(R.id.RegisterPasswordConfirm);
+
+        mAuth = FirebaseAuth.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
+
 
         mbtnRegisterAcept = findViewById(R.id.btnRegisterAcept);
         mbtnRegisterAcept.setOnClickListener(new View.OnClickListener() {
@@ -61,39 +72,55 @@ public class RegisterActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-
     }
-    private void register() {
-        String numberAccount = mNumberAccount.getText().toString();
-        String registerEmail = mRegisterEmail.getText().toString();
-        String registerPassword = mRegisterPassword.getText().toString();
-        String registerPasswordConfirm = mRegisterPasswordConfirm.getText().toString();
 
-        if (numberAccount.isEmpty() || registerEmail.isEmpty() || registerPassword.isEmpty() || registerPasswordConfirm.isEmpty()) {
-            Log.d("Register", "Error: Todos los campos deben ser completados.");
-            return;
-        }
-
-        if (!isEmailValid(registerEmail)) {
-            Log.d("Register", "Error: El correo electrónico no es válido.");
-            return;
-        }
-
-        if (!registerPassword.equals(registerPasswordConfirm)) {
-            Log.d("Register", "Error: Las contraseñas no coinciden.");
-            return;
-        }
-        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-        Log.d("Register", "Number Account: " + numberAccount
-                + ", Email: " + registerEmail + ", Password: " + registerPassword
-                + ", Password Confirm: " + registerPasswordConfirm);
-    }
-    public static boolean isEmailValid(String email){
+    public boolean isEmailValid(String email) {
         String expresion = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         Pattern pattern = Pattern.compile(expresion, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
 
+    private boolean register() {
+        String numberAccount = mNumberAccount.getText().toString();
+        String Email = mEmail.getText().toString();
+        String registerPassword = mRegisterPassword.getText().toString();
+        String registerPasswordConfirm = mRegisterPasswordConfirm.getText().toString();
+
+        if (!numberAccount.isEmpty() && !Email.isEmpty() && !registerPassword.isEmpty() && !registerPasswordConfirm.isEmpty()) {
+            if (isEmailValid(Email)) {
+                if (registerPassword.equals(registerPasswordConfirm)) {
+                    if (registerPassword.length() >= 6) {
+                        createUser(Email, registerPassword);  // Parámetros añadidos aquí
+                    } else {
+                        Toast.makeText(this, "Contraseña muy corta", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Correo invalido", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Llene todos los campos", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    private void createUser(String Email, String registerPassword) {
+        mAuth.createUserWithEmailAndPassword(Email, registerPassword)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {  // Error corregido aquí
+                            Map<String, Object>
+                            String userId = mAuth.getCurrentUser().getUid();
+                            mFirestore.collection("Users").document().set();
+                            Toast.makeText(RegisterActivity2.this, "Usuario creado", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(RegisterActivity2.this, "Error al crear el usuario", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }
