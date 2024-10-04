@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -20,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,7 +38,6 @@ public class RegisterActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register2);
 
         mNumberAccount = findViewById(R.id.NumberAccount);
@@ -81,17 +80,17 @@ public class RegisterActivity2 extends AppCompatActivity {
         return matcher.matches();
     }
 
-    private boolean register() {
+    private void register() {
         String numberAccount = mNumberAccount.getText().toString();
-        String Email = mEmail.getText().toString();
+        String email = mEmail.getText().toString();
         String registerPassword = mRegisterPassword.getText().toString();
         String registerPasswordConfirm = mRegisterPasswordConfirm.getText().toString();
 
-        if (!numberAccount.isEmpty() && !Email.isEmpty() && !registerPassword.isEmpty() && !registerPasswordConfirm.isEmpty()) {
-            if (isEmailValid(Email)) {
+        if (!numberAccount.isEmpty() && !email.isEmpty() && !registerPassword.isEmpty() && !registerPasswordConfirm.isEmpty()) {
+            if (isEmailValid(email)) {
                 if (registerPassword.equals(registerPasswordConfirm)) {
                     if (registerPassword.length() >= 6) {
-                        createUser(Email, registerPassword);  // Parámetros añadidos aquí
+                        createUser(numberAccount, email, registerPassword);
                     } else {
                         Toast.makeText(this, "Contraseña muy corta", Toast.LENGTH_SHORT).show();
                     }
@@ -104,23 +103,37 @@ public class RegisterActivity2 extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Llene todos los campos", Toast.LENGTH_SHORT).show();
         }
-        return false;
     }
 
-    private void createUser(String Email, String registerPassword) {
-        mAuth.createUserWithEmailAndPassword(Email, registerPassword)
+    private void createUser(final String NumberAccount ,final String email, final String registerPassword) {
+        mAuth.createUserWithEmailAndPassword(email, registerPassword)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {  // Error corregido aquí
-                            Map<String, Object>
+                        if (task.isSuccessful()) {
+                            Map<String, Object> map = new HashMap<>();
+                            map.put("email", email);
+                            map.put("numberAccount", NumberAccount);
+
                             String userId = mAuth.getCurrentUser().getUid();
-                            mFirestore.collection("Users").document().set();
-                            Toast.makeText(RegisterActivity2.this, "Usuario creado", Toast.LENGTH_SHORT).show();
+                            mFirestore.collection("Users").document(userId).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                     Toast.makeText(RegisterActivity2.this, "El usuario se almaceno correctamente", Toast.LENGTH_SHORT).show();
+                                     finish();
+                                    }
+                                    else {
+                                        Toast.makeText(RegisterActivity2.this, "Error al almacenar el usuario", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                         } else {
                             Toast.makeText(RegisterActivity2.this, "Error al crear el usuario", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
+
     }
 }

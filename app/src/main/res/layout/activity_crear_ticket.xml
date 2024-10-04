@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearTicket">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:padding="10dp"
+                android:text="Xpectra"
+                android:textSize="50sp"
+                android:textColor="@color/morado"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soporte Tecnico"
+            android:textSize="40sp"
+            android:textColor="@color/morado_1"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Como podemos ayudarte?"
+            android:textSize="30sp"
+            android:textColor="@color/morado_2"
+            android:padding="10dp"
+            android:layout_marginTop="40dp"
+            tools:ignore="HardcodedText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_profile_name"
+                android:layout_gravity="center"
+                android:layout_marginEnd="5dp"
+                tools:ignore="ContentDescription" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/TicketProblema"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="Problema"
+                    android:inputType="textLongMessage"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_status"
+                android:layout_gravity="center"
+                android:layout_marginEnd="5dp"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/TicketStatus"
+                android:layout_width="match_parent"
+                android:hint="Nos pondremos en contacto con usted pronto!"
+                android:textColorHint="@color/morado_3"
+                android:textSize="25dp"
+                android:inputType="textLongMessage"
+                android:ellipsize="end"
+                tools:ignore="HardcodedText,SpUsage,TextViewEdits"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <Button
+                android:id="@+id/btnSaveTicket"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:text="Crear Ticket"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="@color/button_color_selector"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/btnCancelarTicket"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:text="Regresar"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#535C91"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                tools:ignore="HardcodedText" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

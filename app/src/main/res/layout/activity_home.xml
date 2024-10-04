@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:padding="10dp"
+                android:text="Xpectra"
+                android:textSize="50sp"
+                android:textColor="@color/morado"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/btnProfile"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_account"
+                tools:ignore="ContentDescription" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:padding="10dp"
+                android:text="Home"
+                android:textSize="40sp"
+                android:textColor="@color/morado_1"
+                tools:ignore="HardcodedText" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/publicity"
+                tools:ignore="ContentDescription" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal">
+
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="250dp"
+
+                        android:src="@drawable/basico" />
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="250dp"
+
+                        android:src="@drawable/estandar" />
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="250dp"
+
+                        android:src="@drawable/premium" />
+
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <ImageView
+                    android:id="@+id/btnHome"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ic_home"/>
+                <ImageView
+                    android:id="@+id/btnHelp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_help" />
+                <ImageView
+                    android:id="@+id/btnPay"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_pay" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

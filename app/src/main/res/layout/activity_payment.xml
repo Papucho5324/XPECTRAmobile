@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Payment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:padding="10dp"
+                android:text="Xpectra"
+                android:textSize="50sp"
+                android:textColor="@color/morado"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/btnProfile"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_account"
+                tools:ignore="ContentDescription" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Aquí va el contenido existente -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Estado de Cuenta"
+                    android:textSize="40sp"
+                    android:textColor="@color/morado"
+                    android:gravity="center"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Saldo Pendiente"
+                    android:layout_marginTop="30dp"
+                    android:textSize="35dp"
+                    android:gravity="center"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Pagar antes de fecha limite"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    tools:ignore="HardcodedText,SpUsage"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:textSize="30dp"
+                    android:textColor="@color/morado"
+                    android:text="$585.0"
+                    tools:ignore="HardcodedText,SpUsage"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="right"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:text="Servicio"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="$535"
+                        android:textSize="20dp"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="right"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:text="Servicio Extras"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="$50"
+                        android:textSize="20dp"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="right"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:text="Descuento y promociones"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="$0"
+                        android:textSize="20dp"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:gravity="right"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="20dp"
+                        android:text="Pago Total"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="$585"
+                        android:textSize="20dp"
+                        tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnPayBill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Pagar"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textColor="@color/white"
+                    android:background="@color/morado_1"
+                    tools:ignore="HardcodedText,SpUsage" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <ImageView
+                    android:id="@+id/btnHome"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ic_home"
+                    tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/btnHelp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_help" />
+                <ImageView
+                    android:id="@+id/btnPay"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_pay" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,8 +1,6 @@
 ﻿plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
-
-
 }
 
 android {
@@ -28,6 +26,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -35,21 +34,16 @@ android {
 }
 
 dependencies {
-
-
+    implementation(platform("com.google.firebase:firebase-bom:32.1.1")) // Uso correcto del BOM con Kotlin
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
 
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.auth)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(libs.firebase.bom)
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-firestore-ktx:24.6.1")
-
-
 }

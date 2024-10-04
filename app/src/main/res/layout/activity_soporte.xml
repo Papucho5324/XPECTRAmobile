@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Soporte">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:padding="10dp"
+                android:text="Xpectra"
+                android:textSize="50sp"
+                android:textColor="@color/morado"
+                tools:ignore="HardcodedText" />
+            <ImageView
+                android:id="@+id/btnProfile"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_account"
+                tools:ignore="ContentDescription" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soporte Tecnico"
+                android:textSize="40sp"
+                android:textColor="@color/morado_1"
+                android:layout_gravity="center"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tickets Pendientes"
+                android:textSize="30sp"
+                android:textColor="@color/morado_2"
+                android:padding="10dp"
+                android:layout_marginTop="40dp"
+                tools:ignore="HardcodedText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_profile_name"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/TicketRason"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Problema"
+                    android:textColorHint="@color/morado_3"
+                    android:textSize="40sp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeMaxTextSize="40sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:inputType="textLongMessage"
+                    tools:ignore="HardcodedText,SpUsage,TextViewEdits" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_status"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/TicketStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Estatus"
+                    android:textColorHint="@color/morado_3"
+                    android:textSize="40sp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeMaxTextSize="40sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:inputType="textLongMessage"
+                    tools:ignore="HardcodedText,SpUsage,TextViewEdits" />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="100dp">
+
+        <Button
+            android:id="@+id/btnBorrarTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Borrar Ticket"
+            android:backgroundTint="@color/logout"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:id="@+id/btnCrearTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Ticket"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText"
+            android:layout_marginBottom="10dp"/>
+
+
+    </LinearLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="bottom|end"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/black" />
+
+        <ImageView
+            android:id="@+id/btnHome"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_home" />
+
+        <ImageView
+            android:id="@+id/btnHelp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_help" />
+
+        <ImageView
+            android:id="@+id/btnPay"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_pay" />
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

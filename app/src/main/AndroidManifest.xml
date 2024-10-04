@@ -13,6 +13,27 @@
         android:theme="@style/Theme.SocialMediaGamer"
         tools:targetApi="31">
         <activity
+            android:name=".PayBills"
+            android:exported="false" />
+        <activity
+            android:name=".Payment"
+            android:exported="false" />
+        <activity
+            android:name=".CrearTicket"
+            android:exported="false" />
+        <activity
+            android:name=".Soporte"
+            android:exported="false" />
+        <activity
+            android:name=".UploadProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".PrivacyPolice"
             android:exported="false" />
         <activity

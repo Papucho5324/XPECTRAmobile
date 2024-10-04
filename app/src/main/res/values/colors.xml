@@ -6,5 +6,6 @@
     <color name="morado_1">#1B1A55</color>
     <color name="morado_2">#535C91</color>
     <color name="morado_3">#9290C3</color>
+    <color name="logout">#FF0000</color>
 
 </resources>
