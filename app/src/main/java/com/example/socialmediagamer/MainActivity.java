@@ -91,21 +91,37 @@ public class MainActivity extends AppCompatActivity {
 
     // Método login fuera de onCreate
     private void login() {
-        String email = mTextEmail.getText().toString();
-        String password = mTextPassword.getText().toString();
+        String email = mTextEmail.getText().toString().trim();
+        String password = mTextPassword.getText().toString().trim();
+
+        // Verificar si los campos están vacíos
+        if (email.isEmpty()) {
+            mTextEmail.setError("El correo electrónico es obligatorio");
+            mTextEmail.requestFocus(); // Pone el cursor en el campo del email
+            return; // Detiene la ejecución del método si está vacío
+        }
+
+        if (password.isEmpty()) {
+            mTextPassword.setError("La contraseña es obligatoria");
+            mTextPassword.requestFocus(); // Pone el cursor en el campo de la contraseña
+            return; // Detiene la ejecución del método si está vacío
+        }
+
+        // Si los campos no están vacíos, procede con Firebase Authentication
         Log.d("Login", "Email: " + email + ", Password: " + password);
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
+                    // Inicio de sesión exitoso
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
-                }
-                else {
-                    Toast.makeText(MainActivity.this, "Error al iniciar sesion", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Error en el inicio de sesión
+                    Toast.makeText(MainActivity.this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 }
+
